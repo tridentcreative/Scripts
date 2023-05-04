@@ -1,4 +1,3 @@
- <script>
     $(document).ready(function() {
       const filterButtons = $('[filter1-value1-set]');
       const listElements = $('[filter1-value1-match]');
@@ -30,9 +29,8 @@
         }, 200);
       });
     });
-  </script>
+
   
-<script>
 $(document).ready(function() {
   // Initial subheader text
   const initialSubheaderText = $("[element='subheader']").text();
@@ -130,9 +128,6 @@ $(document).ready(function() {
 });
 
 
-</script>
-
-<script>
 
 $(".slider-main_component").each(function (index) {
   let loopMode = false;
@@ -204,4 +199,3 @@ $(".slider-main_component").each(function (index) {
   });
 });
 
-</script>
