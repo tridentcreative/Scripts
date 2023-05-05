@@ -1,0 +1,34 @@
+$(document).ready(function() {
+  // Clone initial elements
+  const initialProducts = $("[element='product']").clone(true);
+
+  function filterProductsByActiveTypes() {
+    $("[element='product']").detach();
+
+    const activeTypes = $("[filter-type].filter-is-active").map(function() {
+      return $(this).attr("filter-type");
+    }).get();
+
+    initialProducts.each(function() {
+      const productType = $(this).attr("filter-type");
+
+      if (activeTypes.includes(productType)) {
+        $("[element='products']").append($(this).clone(true));
+      }
+    });
+  }
+
+  // Type filter button click event
+  $("[element='types']").on("click", ".filter-button", function() {
+    // Toggle filter-is-active class
+    $(this).toggleClass("filter-is-active");
+
+    // Filter products
+    if ($("[filter-type].filter-is-active").length > 0) {
+      filterProductsByActiveTypes();
+    } else {
+      $("[element='product']").detach();
+      $("[element='products']").append(initialProducts.clone(true));
+    }
+  });
+});
