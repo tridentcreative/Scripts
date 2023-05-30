@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
     const input = document.getElementById('address');
     const options = {
       types: ['address']
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       for (let i = 0; i < components.length; i++) {
         const componentType = components[i].types[0];
+        let inputField;
 
         switch (componentType) {
           case 'street_number':
@@ -23,20 +24,28 @@ document.addEventListener('DOMContentLoaded', function() {
             route = components[i].long_name;
             break;
           case 'postal_code':
-            document.getElementById('zip').value = components[i].long_name;
-            document.getElementById('zip').blur();
+            inputField = document.getElementById('zip');
+            inputField.value = components[i].long_name;
+            inputField.focus();
+            inputField.blur();
             break;
           case 'administrative_area_level_1':
-            document.getElementById('province').value = components[i].long_name;
-            document.getElementById('province').blur();
+            inputField = document.getElementById('province');
+            inputField.value = components[i].long_name;
+            inputField.focus();
+            inputField.blur();
             break;
           case 'locality':
-            document.getElementById('suburb').value = components[i].long_name;
-            document.getElementById('suburb').blur();
+            inputField = document.getElementById('suburb');
+            inputField.value = components[i].long_name;
+            inputField.focus();
+            inputField.blur();
             break;
           case 'country':
-            document.getElementById('country').value = components[i].long_name;
-            document.getElementById('country').blur();
+            inputField = document.getElementById('country');
+            inputField.value = components[i].long_name;
+            inputField.focus();
+            inputField.blur();
             break;
         }
       }
@@ -47,7 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
       } else if (route) {
         input.value = route;
       }
-      
+
+      input.focus();
       input.blur();
     });
   });
+
