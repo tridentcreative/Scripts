@@ -1,4 +1,3 @@
-<script>
   document.addEventListener('DOMContentLoaded', function() {
     const input = document.getElementById('autoAddress');
     const options = {
@@ -52,4 +51,3 @@
       input.blur();
     });
   });
-</script>
