@@ -1,5 +1,6 @@
- document.addEventListener('DOMContentLoaded', function() {
-    const input = document.getElementById('address');
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const input = document.getElementById('autoAddress');
     const options = {
       types: ['address']
     };
@@ -24,15 +25,19 @@
             break;
           case 'postal_code':
             document.getElementById('zip').value = components[i].long_name;
+            document.getElementById('zip').blur();
             break;
           case 'administrative_area_level_1':
             document.getElementById('province').value = components[i].long_name;
+            document.getElementById('province').blur();
             break;
           case 'locality':
             document.getElementById('suburb').value = components[i].long_name;
+            document.getElementById('suburb').blur();
             break;
           case 'country':
             document.getElementById('country').value = components[i].long_name;
+            document.getElementById('country').blur();
             break;
         }
       }
@@ -43,5 +48,8 @@
       } else if (route) {
         input.value = route;
       }
+      
+      input.blur();
     });
   });
+</script>
