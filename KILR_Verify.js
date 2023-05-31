@@ -6,9 +6,8 @@ document.getElementById('submitBtn').addEventListener('click', function() {
 
   if (input1Value !== input2Value) {
     logElement.textContent = 'Your inputs don\'t match';
-    logElement.classList.add('is-error');
+    logElement.style.visibility = 'visible';
   } else {
-    logElement.textContent = '';
-    logElement.classList.remove('is-error');
+    logElement.style.visibility = 'hidden';
   }
 });
